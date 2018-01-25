@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.http import Request
 
+
 class FtpSpider(scrapy.Spider):
     name = "ftptest"
     allowed_domains = ["ftp.speed.hinet.net"]
@@ -8,7 +9,7 @@ class FtpSpider(scrapy.Spider):
     handle_httpstatus_list = [404]
 
     def start_requests(self):
-        yield Request('ftp.speed.hinet.net',
+        yield Request('ftp://ftp.speed.hinet.net',
                       meta={'ftp_user': 'ftp', 'ftp_password': 'ftp'})
 
     def parse(self, response):
